@@ -25,11 +25,7 @@ namespace DisplayChanger
             using (var wmiSearcher = new ManagementObjectSearcher("\\root\\wmi", query))
             {
                 var results = wmiSearcher.Get();
-                foreach (ManagementObject wmiObj in results)
-                {
-                    // var active = (Boolean)wmiObj["Active"];
-                    monitorCount++;
-                }
+                monitorCount = results.Count;
             }
             return monitorCount;
         }
