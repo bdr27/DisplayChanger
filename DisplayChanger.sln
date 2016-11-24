@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DisplayChanger", "DisplayChanger\DisplayChanger.csproj", "{2642E48B-48BA-4FA5-A502-CF049CD3F2AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DisplayChangerCLI", "DisplayChangerCLI\DisplayChangerCLI.csproj", "{EBD71500-89B5-4AD7-B924-9C5F600B2D8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DisplayChangeWinForm", "DisplayChangeWinForm\DisplayChangeWinForm.csproj", "{E9BA2631-2BB7-43E4-AC33-1883E208EB40}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{2642E48B-48BA-4FA5-A502-CF049CD3F2AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2642E48B-48BA-4FA5-A502-CF049CD3F2AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2642E48B-48BA-4FA5-A502-CF049CD3F2AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBD71500-89B5-4AD7-B924-9C5F600B2D8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBD71500-89B5-4AD7-B924-9C5F600B2D8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBD71500-89B5-4AD7-B924-9C5F600B2D8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBD71500-89B5-4AD7-B924-9C5F600B2D8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9BA2631-2BB7-43E4-AC33-1883E208EB40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9BA2631-2BB7-43E4-AC33-1883E208EB40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9BA2631-2BB7-43E4-AC33-1883E208EB40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9BA2631-2BB7-43E4-AC33-1883E208EB40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
