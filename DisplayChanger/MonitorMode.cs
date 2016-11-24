@@ -30,11 +30,14 @@ namespace DisplayChanger
             return monitorCount;
         }
 
+        //Checks if extended mode can be set if only 1 monitor is avalible will return false
         public bool SetExtendedMode()
         {
             var hasMultipleMonitors = true;
+            //Checks if only 1 monitor is active this can be the case if only 1 monitor is plugged in or display is running in mirror mode
             if (Screen.AllScreens.Count() == 1)
             {
+                //Checks for how many displays are actually connected to device and if more then 1 is set's extended mode
                 if (ScreenCount() > 1)
                 {
                     SetDisplayMode(DisplayMode.Extend);

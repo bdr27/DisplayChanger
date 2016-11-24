@@ -128,34 +128,34 @@ namespace DisplayChanger
     }
 
 
-    public class NativeMethods
+    internal class NativeMethods
     {
         // http://msdn.microsoft.com/library/default.asp?url=/library/en-us/gdi/devcons_84oj.asp
         [DllImport("user32.dll", CharSet = CharSet.Ansi)]
-        public static extern int EnumDisplaySettings(string lpszDeviceName, int iModeNum, ref DevMode lpDevMode);
+        internal static extern int EnumDisplaySettings(string lpszDeviceName, int iModeNum, ref DevMode lpDevMode);
 
         [DllImport("user32.dll", CharSet = CharSet.Unicode)]
-        public static extern int EnumDisplaySettingsW(string lpszDeviceName, int iModeNum, ref DevMode lpDevMode);
+        internal static extern int EnumDisplaySettingsW(string lpszDeviceName, int iModeNum, ref DevMode lpDevMode);
 
         // http://msdn.microsoft.com/library/default.asp?url=/library/en-us/gdi/devcons_7gz7.asp
         [DllImport("user32.dll", CharSet = CharSet.Ansi)]
-        public static extern ReturnCodes ChangeDisplaySettings(ref DevMode lpDevMode, int dwFlags);
+        internal static extern ReturnCodes ChangeDisplaySettings(ref DevMode lpDevMode, int dwFlags);
 
         [DllImport("user32.dll")]
-        public static extern ReturnCodes ChangeDisplaySettingsEx(string lpszDeviceName, ref DevMode lpDevMode, IntPtr hwnd, int dwflags, IntPtr lParam);
+        internal static extern ReturnCodes ChangeDisplaySettingsEx(string lpszDeviceName, ref DevMode lpDevMode, IntPtr hwnd, int dwflags, IntPtr lParam);
 
         [DllImport("user32.dll", CharSet = CharSet.Unicode)]
-        public static extern ReturnCodes ChangeDisplaySettingsExW(string lpszDeviceName, ref DevMode lpDevMode, object hwnd, int dwFlags, object lParam);
+        internal static extern ReturnCodes ChangeDisplaySettingsExW(string lpszDeviceName, ref DevMode lpDevMode, object hwnd, int dwFlags, object lParam);
 
         [DllImport("User32.dll")]
-        public static extern int EnumDisplayDevices(string lpDevice, int iDevNum, ref DisplayDevice lpDisplayDevice, int dwFlags);
+        internal static extern int EnumDisplayDevices(string lpDevice, int iDevNum, ref DisplayDevice lpDisplayDevice, int dwFlags);
 
         [DllImport("User32.dll", CharSet = CharSet.Ansi)]
-        public static extern int EnumDisplayDevicesA(string lpDevice, int iDevNum, ref DisplayDevice lpDisplayDevice, int dwFlags);
+        internal static extern int EnumDisplayDevicesA(string lpDevice, int iDevNum, ref DisplayDevice lpDisplayDevice, int dwFlags);
 
         [DllImport("User32.dll", CharSet = CharSet.Unicode)]
-        public static extern int EnumDisplayDevicesW(string lpDevice, int iDevNum, ref DisplayDevice lpDisplayDevice, int dwFlags);
+        internal static extern int EnumDisplayDevicesW(string lpDevice, int iDevNum, ref DisplayDevice lpDisplayDevice, int dwFlags);
 
-        public const int ENUM_CURRENT_SETTINGS = -1;
+        internal const int ENUM_CURRENT_SETTINGS = -1;
     }
 }

@@ -38,6 +38,7 @@ namespace DisplayChanger
                 {
                     DisplayDevice device = new DisplayDevice();
                     device.cb = Marshal.SizeOf(typeof(DisplayDevice));
+                    //Gets list of display devies (can include printers)
                     error = NativeMethods.EnumDisplayDevicesW(null, devId, ref device, 0) == 0;
                     devices.Add(device);
                 }
@@ -61,11 +62,13 @@ namespace DisplayChanger
                         error = NativeMethods.EnumDisplaySettings(device.DeviceName, -1 + i, ref mode) == 0;
                         if (!error)
                         {
+                            //Adds new device to display and settings if not already included
                             if (!displayAndSettings.Keys.Contains(device))
                             {
                                 displayAndSettings.Add(device, new List<DevMode>());
                             }
 
+                            //Checks if Screen Resolution, Refresh rate and bits per pixel are already contained within the list to remove duplicates that can show up
                             if (!displayAndSettings[device].Where(m => m.dmPelsWidth == mode.dmPelsWidth && m.dmPelsHeight == mode.dmPelsHeight && m.dmDeviceName == mode.dmDeviceName && m.dmDisplayFrequency == mode.dmDisplayFrequency && m.dmBitsPerPel == mode.dmBitsPerPel).Any())
                             {
                                 Console.WriteLine(string.Format("{0}: {1}x{2} {3}hz", device.DeviceName, mode.dmPelsWidth, mode.dmPelsHeight, mode.dmDisplayFrequency));
@@ -81,6 +84,7 @@ namespace DisplayChanger
             }
         }
 
+        //Get's list of DisplayDevices that are able to set a screen resolution
         public Dictionary<DisplayDevice, List<DevMode>> GetActiveDisplayDevices()
         {
             if(displayAndSettings == null)
@@ -89,15 +93,6 @@ namespace DisplayChanger
             }
 
             return displayAndSettings;
-        }
-
-        public List<DisplayDevice> GetAllDisplayDevies()
-        {
-            if(devices == null)
-            {
-                devices = new List<DisplayDevice>();
-            }
-            return devices;
         }
     }
 }
