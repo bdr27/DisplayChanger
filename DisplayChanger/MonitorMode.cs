@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Linq;
-using System.Text;
+using System.Management;
 using System.Threading;
 using System.Windows.Forms;
-using System.Management;
-using System.ComponentModel;
 
 namespace DisplayChanger
 {
@@ -50,26 +46,28 @@ namespace DisplayChanger
             return hasMultipleMonitors;
         }
 
-        private static void SetDisplayMode(DisplayMode mode)
+        private void SetDisplayMode(DisplayMode mode)
         {
-            var proc = new Process();
-            proc.StartInfo.FileName = "DisplaySwitch.exe";
-            switch (mode)
+            using (var proc = new Process())
             {
-                case DisplayMode.External:
-                    proc.StartInfo.Arguments = "/external";
-                    break;
-                case DisplayMode.Internal:
-                    proc.StartInfo.Arguments = "/internal";
-                    break;
-                case DisplayMode.Extend:
-                    proc.StartInfo.Arguments = "/extend";
-                    break;
-                case DisplayMode.Duplicate:
-                    proc.StartInfo.Arguments = "/clone";
-                    break;
+                proc.StartInfo.FileName = "DisplaySwitch.exe";
+                switch (mode)
+                {
+                    case DisplayMode.External:
+                        proc.StartInfo.Arguments = "/external";
+                        break;
+                    case DisplayMode.Internal:
+                        proc.StartInfo.Arguments = "/internal";
+                        break;
+                    case DisplayMode.Extend:
+                        proc.StartInfo.Arguments = "/extend";
+                        break;
+                    case DisplayMode.Duplicate:
+                        proc.StartInfo.Arguments = "/clone";
+                        break;
+                }
+                proc.Start();
             }
-            proc.Start();
             //Waits so that you can get the update happening correctly
             Thread.Sleep(3000);
         }
