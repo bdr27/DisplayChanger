@@ -97,7 +97,7 @@ namespace DisplayChanger
 
         public override string ToString()
         {
-            return DeviceName;
+            return DeviceString;
         }
     }
 
