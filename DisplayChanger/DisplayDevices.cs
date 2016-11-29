@@ -87,6 +87,21 @@ namespace DisplayChanger
             }
         }
 
+        public Dictionary<DisplayDevice, DevMode> GetCurrentDisplayDevices()
+        {
+            Dictionary<DisplayDevice, DevMode> currentDisplayAndSettings = new Dictionary<DisplayDevice, DevMode>();
+
+            if(displayAndSettings != null)
+            {
+                //first entry in each Display Device is current settings
+                foreach(var key in displayAndSettings.Keys)
+                {
+                    currentDisplayAndSettings.Add(key, displayAndSettings[key][0]);
+                }
+            }
+            return currentDisplayAndSettings;
+        }
+
         //Get's list of DisplayDevices that are able to set a screen resolution
         public Dictionary<DisplayDevice, List<DevMode>> GetActiveDisplayDevices()
         {
