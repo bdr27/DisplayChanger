@@ -87,7 +87,7 @@ namespace DisplayChanger
             }
         }
 
-        public Dictionary<DisplayDevice, DevMode> GetCurrentDisplayDevices()
+        public Dictionary<DisplayDevice, DevMode> GetCurrentDisplaySetting()
         {
             Dictionary<DisplayDevice, DevMode> currentDisplayAndSettings = new Dictionary<DisplayDevice, DevMode>();
 
