@@ -55,6 +55,7 @@ namespace DisplayChanger
 
             foreach (var device in devices)
             {
+                var error1 = false;
                 error = false;
                 for (int i = 0; !error; i++)
                 {
@@ -62,7 +63,8 @@ namespace DisplayChanger
                     {
                         DevMode mode = new DevMode();
                         //-1 get's the current display setting
-                        error = NativeMethods.EnumDisplaySettings(device.DeviceName, -1 + i, ref mode) == 0;
+                        var result = NativeMethods.EnumDisplaySettings(device.DeviceName, -1 + i, ref mode);
+                        error = result == 0;
                         if (!error)
                         {
                             //Adds new device to display and settings if not already included
@@ -77,6 +79,11 @@ namespace DisplayChanger
                                 Console.WriteLine(string.Format("{0}: {1}x{2} {3}hz", device.DeviceName, mode.dmPelsWidth, mode.dmPelsHeight, mode.dmDisplayFrequency));
                                 displayAndSettings[device].Add(mode);
                             }
+                        }
+                        if (!error1)
+                        {
+                            error1 = true;
+                            error = false;
                         }
                     }
                     catch (Exception ex)

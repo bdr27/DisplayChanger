@@ -134,6 +134,9 @@ namespace DisplayChangerCLI
 
             ////Apply the selected resolution ...
             //ChangeDisplaySettings(ref d800x600, 0);
+
+            Console.WriteLine($"Display count {allDisplays.Count}");
+            Console.ReadLine();
             Console.WriteLine("Device");
         }
 
