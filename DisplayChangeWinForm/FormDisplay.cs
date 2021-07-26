@@ -37,7 +37,7 @@ namespace DisplayChangeWinForm
             }
         }
 
-        private void cbDisplays_SelectedIndexChanged(object sender, EventArgs e)
+        private void CbDisplays_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateLvDisplayModes();
         }
@@ -61,7 +61,7 @@ namespace DisplayChangeWinForm
             }
         }
 
-        private void lvDisplayModes_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void LvDisplayModes_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             ChangeDisplay display = new ChangeDisplay();
             try

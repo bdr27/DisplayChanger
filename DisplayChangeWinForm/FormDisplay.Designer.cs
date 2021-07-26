@@ -44,7 +44,7 @@
             this.cbDisplays.Name = "cbDisplays";
             this.cbDisplays.Size = new System.Drawing.Size(600, 21);
             this.cbDisplays.TabIndex = 0;
-            this.cbDisplays.SelectedIndexChanged += new System.EventHandler(this.cbDisplays_SelectedIndexChanged);
+            this.cbDisplays.SelectedIndexChanged += new System.EventHandler(this.CbDisplays_SelectedIndexChanged);
             // 
             // lvDisplayModes
             // 
@@ -62,7 +62,7 @@
             this.lvDisplayModes.TabIndex = 1;
             this.lvDisplayModes.UseCompatibleStateImageBehavior = false;
             this.lvDisplayModes.View = System.Windows.Forms.View.Details;
-            this.lvDisplayModes.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvDisplayModes_MouseDoubleClick);
+            this.lvDisplayModes.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LvDisplayModes_MouseDoubleClick);
             // 
             // DeviceName
             // 

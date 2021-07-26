@@ -42,8 +42,11 @@ namespace DisplayChanger
                     error = NativeMethods.EnumDisplayDevicesW(null, devId, ref device, 0) == 0;
                     DisplayDevice monitorName = device;//.Clone();
                     error = NativeMethods.EnumDisplayDevicesW(monitorName.DeviceName, 0, ref monitorName, 0) == 0;
-                    device.DeviceString = monitorName.DeviceString;
-                    devices.Add(device);
+                    if (error != true)
+                    {
+                        device.DeviceString = monitorName.DeviceString;
+                        devices.Add(device);
+                    }
                 }
                 catch (Exception)
                 {
@@ -88,6 +91,7 @@ namespace DisplayChanger
                     }
                     catch (Exception ex)
                     {
+                        Console.WriteLine(ex.Message);
                         error = false;
                     }
                 }
